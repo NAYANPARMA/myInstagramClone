@@ -13,9 +13,3 @@
   height: 100vh;
 }
 
-.header{
-  background-color: white;
-  object-fit: contain;
-  border-bottom: 1px solid lightgray;
-  padding: 20px;
-}
