@@ -1,3 +1,6 @@
+This is the project which is the clone version of Instgram.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
