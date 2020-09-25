@@ -3,4 +3,9 @@
     object-fit: contain;
     border-bottom: 1px solid lightgray;
     padding: 20px;
-  }
+    display: flex;
+    justify-content: space-between;
+}
+.headerImage{
+  object-fit: contain;
+}

@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import Post from './Post'
+import './Posts.css'
 import { db } from '../firebase'
 class Posts extends Component {
     state = {
         posts:[]
     }
     componentDidMount = () => {
-        db.collection('posts').onSnapshot( async snapshot => {
+        db.collection('posts').orderBy('timestamp','desc').onSnapshot( async snapshot => {
             const posts = []
             snapshot.docs.map(async doc => {
                 const data = {post: doc.data(), id:doc.id}
@@ -22,7 +23,7 @@ class Posts extends Component {
          })
         
         return (
-            <div>
+            <div className='appposts'>
                 {posts}
             </div>
         )   

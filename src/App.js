@@ -4,9 +4,10 @@ import Header from './Header/Header';
 import Posts from './Posts/Posts';
 import MyModal from './Modal/MyModal'
 import { auth } from './firebase'
-import { Button } from '@material-ui/core';
+//import { Button } from '@material-ui/core';
 import UserAuthentication from './UserAuthentication/UserAuthentication';
 import UserLogin from './UserAuthentication/UserLogin';
+import Imageupload from './ImageUpload/Imageupload';
 
 function App() {
   const [open , setOpen] = useState(false)
@@ -43,6 +44,7 @@ function App() {
         })
     })
     .catch((error) => alert(error.message));
+     setOpen(false)
   }
 
   const signin = (event) => {
@@ -73,17 +75,12 @@ function App() {
           setPassword={setPassword}
         />
       </MyModal>
-      <Header/>
-      { user ? 
-        <Button onClick={() => auth.signOut()}>Logout</Button> :
-        <div className='appLogin'>
-          <Button onClick={() => setOpenSignin(true)}>Sign In</Button>
-          <Button onClick={() => setOpen(true)}>Sign up</Button>
-        </div>
-      }
-      
-      <h1>Hey it'smy instagram!</h1>
+      <Header user={user} setOpenSignin={()=> setOpenSignin(true)} setOpen={()=>setOpen(true)}/>
       <Posts/>
+      {user?.displayName ?  (
+        <Imageupload username={user.displayName}/>
+      ):( <h3>Sorry you need to login to upload</h3>
+      )}
     </div>
   );
 }

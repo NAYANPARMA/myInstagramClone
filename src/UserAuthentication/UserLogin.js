@@ -21,7 +21,7 @@ function UserLogin(props) {
             value = {props.password}
             onChange = {(e) => props.setPassword(e.target.value)}
         />
-        <Button type='submit' onClick={props.signup}>Sign Up</Button>
+        <Button type='submit' onClick={props.signin}>Sign In</Button>
     </form>
     )
 }
