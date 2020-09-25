@@ -7,18 +7,18 @@ class Posts extends Component {
     }
     componentDidMount = () => {
         db.collection('posts').onSnapshot( async snapshot => {
+            const posts = []
             snapshot.docs.map(async doc => {
-                const data = doc.data()
-                const posts = [ ...this.state.posts ]
+                const data = {post: doc.data(), id:doc.id}
                 posts.push(data)
-                this.setState({posts:posts})
             })
+            this.setState({posts:posts})
         })
     }
     
     render() {
-        const posts = this.state.posts.map( post => {
-            return <Post key={post.username}username = {post.username}  imageUrl= {post.imageUrl} caption = {post.caption}/>
+        const posts = this.state.posts.map(({post,id}) => {
+            return <Post key={id} username = {post.username}  imageUrl= {post.imageUrl} caption = {post.caption}/>
          })
         
         return (
