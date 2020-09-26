@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Post from './Post'
 import './Posts.css'
 import { db } from '../firebase'
+import InstagramEmbed from 'react-instagram-embed';
+
 class Posts extends Component {
     state = {
         posts:[]
@@ -19,12 +21,29 @@ class Posts extends Component {
     
     render() {
         const posts = this.state.posts.map(({post,id}) => {
-            return <Post key={id} username = {post.username}  imageUrl= {post.imageUrl} caption = {post.caption}/>
+            return <Post key={id} postId ={id} username = {post.username}  imageUrl= {post.imageUrl} caption = {post.caption}/>
          })
         
         return (
             <div className='appposts'>
-                {posts}
+                <div className="apppostsleft">
+                    {posts}
+                </div>
+                <div className="apppostsright">
+                    <InstagramEmbed
+                        url='https://instagr.am/p/Zw9o4/'
+                        maxWidth={320}
+                        hideCaption={false}
+                        containerTagName='div'
+                        protocol=''
+                        injectScript
+                        onLoading={() => {}}
+                        onSuccess={() => {}}
+                        onAfterRender={() => {}}
+                        onFailure={() => {}}
+                    />
+                </div>
+                
             </div>
         )   
     }

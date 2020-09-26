@@ -1,8 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './post.css'
 import Avatar from "@material-ui/core/Avatar"
+import { db } from '../firebase'
 
 function Post(props) {
+    const [comments, setComments] = useState([])
+
+    useEffect(() => {
+        let unsubscribe
+        if(props.postId){
+            unsubscribe = db
+                .collection("posts")
+                .doc(props.postId)
+                .collection("comments")
+                .onSnapshot((snapshot) =>{
+                    setComments(snapshot.doc.map((doc)=> doc.data()))
+                })
+        }
+
+        return () => {
+            unsubscribe();
+        }
+    },[props.postId])
     return (
         <div className="post">
             <div className="postHeader">
@@ -18,7 +37,7 @@ function Post(props) {
                 alt = {props.username}
             />
             <h4 className="postText"><strong>{props.username} </strong>{props.caption}</h4>
-            {/* caption */}
+            
         </div>
     )
 }

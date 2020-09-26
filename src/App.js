@@ -9,6 +9,7 @@ import UserAuthentication from './UserAuthentication/UserAuthentication';
 import UserLogin from './UserAuthentication/UserLogin';
 import Imageupload from './ImageUpload/Imageupload';
 
+
 function App() {
   const [open , setOpen] = useState(false)
   const [username, setUserName] = useState('')
@@ -77,6 +78,9 @@ function App() {
       </MyModal>
       <Header user={user} setOpenSignin={()=> setOpenSignin(true)} setOpen={()=>setOpen(true)}/>
       <Posts/>
+ 
+      
+      
       {user?.displayName ?  (
         <Imageupload username={user.displayName}/>
       ):( <h3>Sorry you need to login to upload</h3>
