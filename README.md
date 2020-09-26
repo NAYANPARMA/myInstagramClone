@@ -1,5 +1,12 @@
 This is the project which is the clone version of Instgram.
+(https://myinstagram-354bb.web.app)
 
+This project deployed using firebase. Fire base is used for autentication and image storage for this website. And also used material ui for some of the component like avatar, modal, etc. 
+To run this project in to the local machine please do 
+
+### npm install
+
+which will install all the dependancy packeges for the project.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
