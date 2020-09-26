@@ -21,7 +21,7 @@ class Posts extends Component {
     
     render() {
         const posts = this.state.posts.map(({post,id}) => {
-            return <Post key={id} postId ={id} username = {post.username}  imageUrl= {post.imageUrl} caption = {post.caption}/>
+            return <Post key={id} postId ={id} user={this.props.user} username = {post.username}  imageUrl= {post.imageUrl} caption = {post.caption}/>
          })
         
         return (

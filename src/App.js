@@ -77,7 +77,7 @@ function App() {
         />
       </MyModal>
       <Header user={user} setOpenSignin={()=> setOpenSignin(true)} setOpen={()=>setOpen(true)}/>
-      <Posts/>
+      <Posts user={user}/>
  
       
       

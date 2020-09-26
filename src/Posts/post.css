@@ -24,5 +24,28 @@
     font-weight: normal;
     padding: 20px
 }
+.postcommentbox{
+    display: flex;
+    margin-top: 10px;
+}
+
+.postinput{
+    flex: 1;
+    border:none;
+    padding:10px;
+    border-top:1px solid lightgray;
+}
+
+.postcomments{
+    padding:20px;
+}
+.postbutton{
+    flex: 0;
+    border:none;
+    border-top:1px solid lightgray;
+    background-color: transparent;
+    color: #6082a3;
+}
+
 
 
